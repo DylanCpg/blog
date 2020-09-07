@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Home</title>
+</head>
+
+<body>
+
+<h1 class="text-center">Bienvenue sur notre site du plaisir<h1>
+<br>
+<a href={% url 'blog:index' %}>Voir notre blog</a>
+<br>
+<a href="/createPost">Creer un nouveau post</a>
+<br>
+<a href={% url 'blog:category' %}>Voir les articles classés par category</a>
+<br><br>
+<p>Voici les derniers posts publiés: <p>
+  {% for post in post %}
+    {%if post.title != "Stock"%}
+      <article>
+        <a href="/blog/post/{{post.id}}"><h2>{{post.title}} #{{post.category}}</h2></a>
+        <p>{{post.body|truncatechars:10}}</p>
+      <article>
+      {%endif%}
+    {% if not forloop.last %}
+    <hr>
+    {% endif %}
+    {% empty %}
+      <p>No post available</p>
+
+  {% endfor %}
+
+
+  </body>
+</html>

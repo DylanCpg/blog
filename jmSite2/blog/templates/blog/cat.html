@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title class="text-center">Categries</title>
+  </head>
+    <body>
+
+    <h1>Categories</h1>
+    {%for post in post %}
+    <ul>
+      <li><a href='category/{{post}}'>{{post}}</a></li>
+    </ul>
+    {% empty %}
+      <p>No post available</p>
+    {%endfor%}
+    <a href="../">Retour à l'écran d'accueil</a>
+
+  </body>
+</html>
